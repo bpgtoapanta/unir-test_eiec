@@ -51,7 +51,7 @@ class TestApi(unittest.TestCase):
         assert response.status_code == http.client.BAD_REQUEST
 # test api rest metodo divide
     def test_api_divide(self):
-        url = f"{BASE_URL}/calc/divide/5/5"
+        url = f"{BASE_URL}/calc/divide/5/0"
         response = urlopen(url, timeout=DEFAULT_TIMEOUT)
         self.assertEqual(
             response.status, http.client.OK, f"Error en la petición API a {url}"
