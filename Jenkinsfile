@@ -3,11 +3,6 @@ pipeline {
         label 'docker'
     }
     stages {
-        stage('Source') {
-            steps {
-                git 'https://github.com/bpgtoapanta/unir-test_eiec.git'
-            }
-        }
         stage('Build') {
             steps {
                 echo 'Building stage!'
