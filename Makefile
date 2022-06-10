@@ -1,7 +1,7 @@
 .PHONY: all $(MAKECMDGOALS)
 
 build:
-	docker build -t calculator-app .
+	docker build -t calculator-app 
 
 run:
 	docker run --rm --volume `pwd`:/opt/calc --env PYTHONPATH=/opt/calc -w /opt/calc calculator-app:latest python -B app/calc.py
