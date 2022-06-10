@@ -32,6 +32,9 @@ pipeline {
         always {
             junit 'results/*_result.xml'
             cleanWs()
+            mail to: "bpgtoapantag@gmail.com",
+            subject: "Test Email",
+            body: "Test"
         }
     }
 }
