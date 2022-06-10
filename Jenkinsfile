@@ -32,9 +32,13 @@ pipeline {
         always {
             junit 'results/*_result.xml'
             cleanWs()
-            mail to: "bpgtoapanta@gmail.com",
-            subject: "Test Email",
-            body: "Test"
         }
+        success {  
+             echo 'This will run only if successful'  
+             mail to: 'bpgtoapanta@gmail.com', body: "<b>Pipeline - ERROR Compile</b><br>Project: ${env.JOB_NAME} <br>Build Number: ${env.BUILD_NUMBER} <br> URL de build: ${env.BUILD_URL}", charset: 'UTF-8', mimeType: 'text/html', subject: "ERROR CI: Project name -> ${env.JOB_NAME}";  
+         }  
+         failure {  
+             mail to: 'bpgtoapanta@gmail.com', body: "<b>Pipeline - ERROR Compile</b><br>Project: ${env.JOB_NAME} <br>Build Number: ${env.BUILD_NUMBER} <br> URL de build: ${env.BUILD_URL}", charset: 'UTF-8', mimeType: 'text/html', subject: "ERROR CI: Project name -> ${env.JOB_NAME}";  
+         }  
     }
 }
